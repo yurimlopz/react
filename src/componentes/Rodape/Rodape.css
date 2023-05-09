@@ -1,6 +1,6 @@
 /* src/componentes/Rodape/index.js */
 
-.rodape{
+.rodape__footer{
     background: #6278F7;
     color: #FFF;
     padding: 80px;
@@ -9,12 +9,12 @@
     align-items: center;
 }
 
-.rodape ul li {
+.rodape__footer ul li {
     display: inline-block;
     margin-right: 32px;
 }
 
-.rodape ul li:last-child {
+.rodape__footer ul li:last-child {
     margin-right: 0;
 }
 
