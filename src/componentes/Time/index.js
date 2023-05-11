@@ -2,10 +2,10 @@ import Colaborador from '../Colaborador'
 import './Time.css'
 
 const Time = (props)=>{
-    const css = { backgroundColor:props.corPrimaria}
+    
     return (
-       (props.colaboradores.length > 0) ? <section className='time' style={css}>
-            <input onChange={evento => props.mudarCor(evento.target.value, props.nome)} value={props.corSecundaria} type='color' className='input__cor'/>
+       (props.colaboradores.length > 0) ? <section className='time' style={{backgroundColor:props.corPrimaria}}>
+            <input onChange={evento => props.mudarCor(evento.target.value,props.nome)} value={props.corPrimaria} type='color' className='input__cor'/>
             <h3 style={{borderColor:props.corPrimaria}}>{props.nome}</h3>
             <div className='colaboradores'>
                 {/* Renderiza todos os colaboradores dentro de time */}
