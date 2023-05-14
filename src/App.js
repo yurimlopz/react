@@ -12,36 +12,43 @@ function App() {
   const [times, setTimes] = useState([
     {
       id: uuidv4(),
+      favorito:false,
       nome: 'Programação',
       cor:'#D9F7E9'
     },
     {
       id: uuidv4(),
+      favorito:false,
       nome: 'Front End',
       cor:'#E8F8FF'
     },
     {
       id: uuidv4(),
+      favorito:false,
       nome: 'Data Science',
       cor:'#F0F8E2'
     },
     {
       id: uuidv4(),
+      favorito:false,
       nome: 'Devops',
       cor:'#FDE7E8'
     },
     {
       id: uuidv4(),
+      favorito:false,
       nome: 'UX e Desingn',
       cor:'#FAE9F5'
     },
     {
       id: uuidv4(),
+      favorito:false,
       nome: 'Mobile',
       cor:'#FFF5D9'
     },
     {
       id: uuidv4(),
+      favorito:false,
       nome:'Inovação e Gestão',
       cor:'#FFEEDF'
     },
@@ -62,18 +69,33 @@ function App() {
     }));
   }
 
+  function CadastrarTime(novoTime){
+    setTimes([...times, {...novoTime, id:uuidv4()}])
+
+  }
+
+  function resolverFavorito(id){
+    setColaboradores(colaboradores.map((colaborador)=>{
+      if(colaborador.id === id) colaborador.favorito = !colaborador.favorito
+      return colaborador
+    }))
+  }
+
 
   return (
     <div>
       <Banner />
       <Formulario
+        CadastrarTime={CadastrarTime}
         times={times.map(time => time.nome)}
         aoCadastrar={colaborador => setColaboradores([...colaboradores, colaborador])}
        />
       <section className="times">
         <h1>Minha organização</h1>
         {times.map((time, indice) =>
-          <Time mudarCor={mudarCor}
+          <Time
+            aoFavoritar={resolverFavorito}
+            mudarCor={mudarCor}
             key={indice}
             time={time}
             colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)} aoDeletar={deletarColaborador} 
